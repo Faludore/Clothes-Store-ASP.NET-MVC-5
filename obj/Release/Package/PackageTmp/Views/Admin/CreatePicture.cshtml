@@ -1,0 +1,61 @@
+﻿@model StoreIdent.Models.Picture
+
+@{
+    ViewBag.Title = "CreatePicture";
+}
+
+
+@Html.Partial("AdminHeder")
+<div class="wrapper">
+    @Html.Partial("Nav")
+
+    <div class="light shopping-cart-area">
+
+        <h2>CreatePicture</h2>
+
+        @using (Html.BeginForm("CreatePicture", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PictureTypeID, "PictureType", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.PictureTypeID, ViewBag.Picturetypes as SelectList)
+                        @Html.ValidationMessageFor(model => model.PictureTypeID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="editor-field col-md-10">
+                        <input type="file" name="uploadImage" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClotheID, "Clothe", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.ClotheID, ViewBag.Clothes as SelectList)
+                        @Html.ValidationMessageFor(model => model.ClotheID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-elegant btn-sm" />
+                        <button class="btn btn-elegant btn-sm" onclick="location.href='@Url.Action("ListPicture")';return false;">Back to List</button>
+                    </div>
+                </div>
+
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</div>

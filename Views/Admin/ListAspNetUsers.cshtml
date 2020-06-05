@@ -1,0 +1,110 @@
+﻿@model IEnumerable<StoreIdent.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "ListUsers";
+}
+
+@Html.Partial("AdminHeder")
+<div class="wrapper">
+    @Html.Partial("Nav")
+
+    <div class="light shopping-cart-area">
+
+
+
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="s-cart-all">
+                    <div class="cart-form table-responsive">
+                        <table id="shopping-cart-table" class="data-table cart-table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EmailConfirmed)
+                                </th>
+
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
+                                </th>
+
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.LastName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DnTBD)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DnTReg)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DnTDel)
+                                </th>
+
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">  @Html.DisplayFor(modelItem => item.Email)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">  @Html.DisplayFor(modelItem => item.EmailConfirmed)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock"> @Html.DisplayFor(modelItem => item.PhoneNumber)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">  @Html.DisplayFor(modelItem => item.PhoneNumberConfirmed)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">   @Html.DisplayFor(modelItem => item.UserName)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">  @Html.DisplayFor(modelItem => item.Name)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">   @Html.DisplayFor(modelItem => item.LastName)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">  @Html.DisplayFor(modelItem => item.DnTBD)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">   @Html.DisplayFor(modelItem => item.DnTReg)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">   @Html.DisplayFor(modelItem => item.DnTDel)</span>
+                                    </td>
+
+
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

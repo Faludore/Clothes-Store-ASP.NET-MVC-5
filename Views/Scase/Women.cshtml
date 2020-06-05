@@ -1,0 +1,253 @@
+﻿@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Women";
+}
+
+
+<section class="contact-img-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="con-text">
+                    <h2 class="page-title">Shop</h2>
+                    <p><a href="/Scase/Main">Home</a> | @ViewBag.Gender</p>
+                    <input type="hidden" id="GenderID" value=@ViewBag.GenderID />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pages products-page section-padding-top">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-lg-3 col-sm-12">
+                <div class="all-shop-sidebar">
+                    <div class="top-shop-sidebar">
+                        <h3 class="wg-title">SHOP BY</h3>
+                    </div>
+                    <div class="shop-one">
+                        <h3 class="wg-title2">Categories</h3>
+
+                        <ul class="product-categories">
+
+                            @foreach (var item in ViewBag.Categories)
+                            {
+                                <li class="cat-item">
+                                    <label>
+                                        <input type="checkbox" name="category" class="common_selector category" value="@item.Id">
+                                        <span class="spanchk">    @item.Name </span>
+                                    </label>
+
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                    <div class="shop-one">
+                        <h3 class="wg-title2">Our Brand</h3>
+                        <ul class="product-categories">
+
+                            @foreach (var item in ViewBag.Brands)
+                            {
+                                <li class="cat-item">
+                                    <label>
+                                        <input type="checkbox" name="brand" class="common_selector brand" value="@item.Id">
+                                        <span class="spanchk">    @item.Name </span>
+
+                                    </label>
+                                    @*<span class="count">(10)</span>*@
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                    <div class="shop-one re-shop-one">
+                        <h3 class="wg-title2">Choose Price</h3>
+                        <div class="widget shop-filter">
+                            <div class="info_widget">
+                                <div class="price_filter">
+
+                                    <div id="slider"></div>
+                                    <div id="amount">
+                                        <input class="first_price" type="text" id="minimum_price" />
+                                        <input class="last_price" type="text" id="maximum_price" />
+
+                                        <button id="pricefilter" class="button-shop" type="submit"><i class="fa fa-search search-icon"></i></button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="top-shop-sidebar an-shop">
+                        <h3 class="wg-title">MOST POPULAR</h3>
+                        <ul>
+                            @foreach (var item in ViewBag.PopularClothes)
+                            {
+                                <li class="b-none">
+                                    <div class="tb-recent-thumbb">
+                                        <a href='@Url.Action("CreateOrderOne", "Scase" , new { id = item.ClotheID })'>
+                                            <img style="width:85px; height:125px;" class="attachment" src=@Html.Raw("\"data:image/jpeg;base64," + Convert.ToBase64String(item.Image) + "\" ") alt="">
+                                        </a>
+                                    </div>
+                                    <div class="tb-recentb">
+                                        <div class="tb-beg">
+                                            <a href="#">@item.Name</a>
+                                        </div>
+                                        <div class="tb-product-price font-noraure-3">
+                                            <span class="amount">@item.Price$</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+
+
+
+                        </ul>
+                    </div>
+                    @*<div class="ro-info-box-wrap tpl3 st">
+                            <div class="tb-image">
+                                <img src="img/products/4.jpg" alt="">
+                            </div>
+                            <div class="tb-content">
+                                <div class="tb-content-inner an-inner">
+                                    <h5>WOMEN'S FASHION</h5>
+                                    <h3>MID SEASON SALE</h3>
+                                    <h6>
+                                        <a href="#">SHOP NOW</a>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-9 col-sm-12">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="features-tab">
+                            <!-- Nav tabs -->
+                            <div class="shop-all-tab">
+                                <div class="two-part">
+                                    <ul class="nav tabs" role="tablist">
+                                        <li class="vali">View as:</li>
+                                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-th-large"></i></a></li>
+                                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="re-shop">
+
+                                    <div class="sort-by">
+                                        <div class="shop6">
+                                            <label>Sort By :</label>
+                                            <div class="selectdiv">
+                                                @Html.DropDownList("pageSort")
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="two-part">
+                                        <div class="shop5">
+                                            <label>Show :</label>
+                                            <div class="selectdiv">
+                                                @Html.DropDownList("pageSize")
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- Tab panes -->
+                            <div id="results">
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@Html.Partial("_Brands")
+@Html.Partial("_Info")
+<style>
+    #loading {
+        text-align: center;
+        background: url('~/Content/gif/loader.gif') no-repeat center;
+        height: 150px;
+    }
+</style>
+<script>
+    $('.common_selector').click(function () {
+         update();
+
+    });
+    function update() {
+        var brand = get_filter('brand');
+        var category = get_filter('category');
+        var minimum = $('#minimum_price').val();
+        var maximum = $('#maximum_price').val();
+        var pagesize = $('#pageSize').val();
+        var pagesort = $('#pageSort').val(); 
+        var gender = $('#GenderID').val();
+        $('#results').load('@Url.Action("ClotheFilter", "Scase")?min=' + minimum + '&max=' + maximum + '&PageSize=' + pagesize + '&pageSort=' + pagesort + '&brands=' + brand + '&categories=' + category + '&gender=' + gender);
+    }
+    function get_filter(name) {
+
+        var filter = new Array();
+        $.each($("input[name='" + name +"']:checked"), function () {
+            filter.push($(this).val());
+        });
+        return filter;
+    }
+    $(document).ready(function () {
+        // Initializing slider
+        var sliderDiv = $('#slider');
+        sliderDiv.slider({
+            range: true,
+            min: @ViewBag.Min,
+            max: @ViewBag.Max,
+            values: [ @ViewBag.Min, @ViewBag.Max],
+            slide: function (event, ui) {
+                $('#minimum_price').val(ui.values[0]);
+                $('#maximum_price').val(ui.values[1]);
+            },
+        });
+        $('#minimum_price').val(sliderDiv.slider('values', 0));
+        $('#maximum_price').val(sliderDiv.slider('values', 1));
+    });
+
+     $(document).ready(function () {
+         $('#pricefilter').click(function (e) {
+            update();
+        });
+    });
+    $(document).ready(function () {
+         var brand = get_filter('brand');
+             update();
+
+    });
+
+     $(document).ready(function () {
+         $('#pageSize').change(function (e) {
+            e.preventDefault();
+             update();
+        });
+    });
+
+     $(document).ready(function () {
+         $('#pageSort').change(function (e) {
+            e.preventDefault();
+           update();
+        });
+    });
+
+</script>

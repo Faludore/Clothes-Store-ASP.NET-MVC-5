@@ -1,0 +1,77 @@
+﻿@model IEnumerable<StoreIdent.ViewModels.CartViewModel>
+
+
+<table id="shopping-cart-table" class="data-table cart-table">
+    <tr>
+
+        <th>Images</th>
+        <th class="low2">Product Name</th>
+        <th>Unit Price </th>
+        <th>Size</th>
+        <th>Quantity</th>
+       
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+
+            <td class="sop-cart">
+                <a href='@Url.Action("CreateOrderOne", "Scase" , new { id = item.ClotheID })'> <img style="width:85px; height:125px;" src=@Html.Raw("\"data:image/jpeg;base64," + Convert.ToBase64String(item.Image) + "\" ") /></a>
+            </td>
+            <td class="sop-cart an-sh">
+                <div class="tb-beg">
+                    <a href='@Url.Action("CreateOrderOne", "Scase" , new { id = item.ClotheID })'>@item.Name</a>
+                </div>
+
+            </td>
+            <td class="sop-cart">
+                <div class="tb-product-price font-noraure-3">
+                    <span class="amount">@item.Price$</span>
+                </div>
+            </td>
+            <td class="sop-cart">
+                <div class="tb-product-price font-noraure-3">
+                    <span class="amount">@item.Size</span>
+                </div>
+            </td>
+            <td class="sop-cart">
+                <div class="tb-product-price font-noraure-3">
+                    <span class="amount">@item.Amount</span>
+                </div>
+            </td>
+            
+        </tr>
+
+    }
+
+    <tfoot>
+
+
+
+        <tr>
+
+            <td colspan="6">
+                <div class="tb-product-price font-noraure-3">
+                    <h4>
+                        <span class="amount">
+                            Total - @ViewBag.TotalSum$
+                        </span>
+                    </h4>
+                </div>
+                <button class="mobile-button" id="back">
+                    <span class="btn btn-danger g6">Back</span>
+                 
+                </button>
+
+
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<script type="text/javascript">
+    $("#back").click(function () {
+        $('#ordersres').load('@Url.Action("OrdersList", "Scase")');
+    });
+</script>

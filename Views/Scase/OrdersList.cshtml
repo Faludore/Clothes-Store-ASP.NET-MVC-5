@@ -1,0 +1,43 @@
+﻿@model IEnumerable<StoreIdent.Models.Order>
+
+<h2>count orders : @ViewBag.Count</h2>
+@foreach (var item in Model)
+{
+    <table class="table table-bordered table-hover">
+        <tr>
+            <td class="text-left">
+                @item.Id
+                <br>
+                @item.FirstName
+                <br>
+                @item.LastName
+                <br>
+                @item.Email
+                <br>
+                @item.PhoneNumber
+                <br>
+                @item.PostCode
+                <br>
+                @item.TotalSum
+            </td>
+            <td class="text-right">
+
+                <button class="mobile-button" id="detal" value="@item.Id">
+                    <span class="btn btn-danger g6">Details</span>
+                    @*<a class="btn btn-danger g6" href="">Details</a>*@
+                </button>
+
+            </td>
+        </tr>
+    </table>
+}
+
+
+<script type="text/javascript">
+
+
+    
+    $("button").click(function () {
+        $('#ordersres').load('@Url.Action("GetOneOrder", "Scase")?id=' + $(this).val() );
+    });
+</script>

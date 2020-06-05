@@ -1,0 +1,334 @@
+﻿@model StoreIdent.Models.OrderOne
+
+@{
+    ViewBag.Title = "CreateOrderOne";
+}
+
+@Html.Partial("UserHeder")
+@using (Html.BeginForm("CreateOrderOne", "Scase", FormMethod.Post, new { enctype = "multipart/form-data", id = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+
+
+    <div class="container">
+
+        <div id="view-gallery" class="owl-carousel product-slider owl-theme">
+            <div class="col-xs-12">
+                <div class="d-table">
+                    <div class="d-tablecell">
+
+
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-5">
+                                <div class="quick-image">
+                                    <div class="single-quick-image tab-content text-center">
+                                        <div class="tab-pane  fade in active" id="sin-pro-1">
+
+                                            @foreach (var photo in ViewBag.Pic)
+                                            {
+                                                if (photo.PictureType.Name == "main")
+                                                {
+                                                    <img @*style="width:359px; height:528px;"*@ src=@Html.Raw("\"data:image/jpeg;base64," + Convert.ToBase64String(photo.Image) + "\" ") />
+                                                }
+                                            }
+
+
+                                        </div>
+                                        <div class="tab-pane fade in" id="sin-pro-2">
+                                            @foreach (var photo in ViewBag.Pic)
+                                            {
+                                                if (photo.PictureType.Name == "back")
+                                                {
+                                                    <img src=@Html.Raw("\"data:image/jpeg;base64," + Convert.ToBase64String(photo.Image) + "\" ") />
+                                                }
+                                            }
+                                        </div>
+                                        <div class="tab-pane fade in" id="sin-pro-3">
+                                            @foreach (var photo in ViewBag.Pic)
+                                            {
+                                                if (photo.PictureType.Name == "zoom")
+                                                {
+                                                    <img src=@Html.Raw("\"data:image/jpeg;base64," + Convert.ToBase64String(photo.Image) + "\" ") />
+                                                }
+                                            }
+                                        </div>
+                                        <div class="tab-pane fade in" id="sin-pro-4">
+                                            @foreach (var photo in ViewBag.Pic)
+                                            {
+                                                if (photo.PictureType.Name == "front")
+                                                {
+                                                    <img src=@Html.Raw("\"data:image/jpeg;base64," + Convert.ToBase64String(photo.Image) + "\" ") />
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="quick-thumb">
+                                        <div class="nav nav-tabs">
+                                            <ul>
+                                                <li>
+                                                    <a data-toggle="tab" href="#sin-pro-1">
+                                                        @foreach (var photo in ViewBag.Pic)
+                                                        {
+                                                            if (photo.PictureType.Name == "main")
+                                                            {
+
+                                                                <img alt="quick view" style="width:85px; height:125px;" src=@Html.Raw("\"data:image/jpeg;base64," + Convert.ToBase64String(photo.Image) + "\" ") />
+                                                            }
+                                                        }
+
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="tab" href="#sin-pro-2">
+                                                        @foreach (var photo in ViewBag.Pic)
+                                                        {
+                                                            if (photo.PictureType.Name == "back")
+                                                            {
+
+                                                                <img alt="quick view" style="width:85px; height:125px;" src=@Html.Raw("\"data:image/jpeg;base64," + Convert.ToBase64String(photo.Image) + "\" ") />
+                                                            }
+                                                        }
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="tab" href="#sin-pro-3">
+                                                        @foreach (var photo in ViewBag.Pic)
+                                                        {
+                                                            if (photo.PictureType.Name == "zoom")
+                                                            {
+
+                                                                <img alt="quick view" style="width:85px; height:125px;" src=@Html.Raw("\"data:image/jpeg;base64," + Convert.ToBase64String(photo.Image) + "\" ") />
+                                                            }
+                                                        }
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="tab" href="#sin-pro-4">
+                                                        @foreach (var photo in ViewBag.Pic)
+                                                        {
+                                                            if (photo.PictureType.Name == "front")
+                                                            {
+
+                                                                <img alt="quick view" style="width:85px; height:125px;" src=@Html.Raw("\"data:image/jpeg;base64," + Convert.ToBase64String(photo.Image) + "\" ") />
+                                                            }
+                                                        }
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-7">
+                                <div class="quick-right">
+                                    <div class="quick-right-text">
+                                        <h3><strong> @ViewBag.Clothe.Name </strong></h3>
+                                        <div class="rating">
+                                            <span class="star-right">
+                                                @if (@ViewBag.Clothe.Mark == null)
+                                                {
+                                                    for (int i = 1; i <= 5; i++)
+                                                    {
+                                                        <a href='@Url.Action("Mark", "Scase", new { id = @ViewBag.Clothe.Id, mark = i})'>
+                                                            <i class="fa fa-star-o"></i>
+                                                        </a>
+                                                    }
+                                                }
+                                                else if (@ViewBag.Clothe.Mark != null)
+                                                {
+                                                    for (int i = 1; i <= 5; i++)
+                                                    {
+                                                        if (i <= @ViewBag.Clothe.Mark)
+                                                        {
+                                                            <a href='@Url.Action("Mark", "Scase", new { id = @ViewBag.Clothe.Id, mark = i})'>
+                                                                <i class="fa fa-star"></i>
+                                                            </a>
+
+                                                        }
+                                                        else if (i > @ViewBag.Clothe.Mark)
+                                                        {
+                                                            <a href='@Url.Action("Mark", "Scase", new { id = @ViewBag.Clothe.Id, mark = i})'>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </a>
+
+                                                        }
+                                                    }
+                                                }
+                                            </span>
+                                            <a href="#">06 Review</a>
+                                            <a href="#">Add review</a>
+                                        </div>
+                                        <br />
+                                        <div class="amount">
+                                            <h4>@ViewBag.Clothe.Price$</h4>
+                                        </div>
+                                        <br />
+                                        <p>@ViewBag.Clothe.Info</p>
+                                        <hr />
+                                        <div class="row m-p-b">
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="por-dse responsive-strok clearfix">
+                                                    <ul>
+                                                        <li><span>Availability</span><strong>:</strong> In stock</li>
+                                                        <li><span>Condition</span><strong>:</strong> New product</li>
+                                                        <li><span>Category</span><strong>:</strong> @ViewBag.Gender.Name</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-5">
+                                                <div class="por-dse responsive-strok clearfix">
+                                                    <ul>
+                                                        <li><span>Type</span><strong>:</strong>  @ViewBag.Type.Name</li>
+                                                        <li><span>Brand</span><strong>:</strong>  @ViewBag.Brand.Name</li>
+                                                        <li><span>Material</span><strong>:</strong>  @ViewBag.Material.Name</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="dse-btn">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="por-dse clearfix">
+                                                        <ul>
+                                                            <li class="share-btn qty clearfix">
+                                                                <span>Size</span><strong>:</strong>
+                                                                <div class="selectdiv">
+
+                                                                    @Html.DropDownListFor(model => model.SizeID, ViewBag.Sizes as SelectList, " ", new { @class = "form-control" })
+                                                                </div>
+                                                            </li>
+                                                            <li class="share-btn clearfix">
+                                                                <span>Quantity</span><strong>:</strong>
+                                                                <div class="selectdiv" id="here">
+
+
+                                                                    @Html.DropDownListFor(model => model.Amount, new SelectList(" "), "  ", new { @class = "form-control" })
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="por-dse add-to">
+                                                        <a href="#"><i class="fa fa-heart"></i></a>
+                                                        <a class="add-to-cart" href="#">add to cart</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="new-products single-products section-padding-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="section-title">
+                        <h3>last seen</h3>
+                        <div class="section-icon">
+                            <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="new-products" class="owl-carousel product-slider owl-theme">
+                    @foreach (var item in ViewBag.LastSeen)
+                    {
+
+
+                        <div class="col-xs-12">
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <div class="pro-type">
+                                        <span>sale</span>
+                                    </div>
+                                    <a href='@Url.Action("CreateOrderOne", "Scase", new { id = item.Id })'>
+                                        <img  src=@Html.Raw("\"data:image/jpeg;base64," + Convert.ToBase64String(item.Image) + "\" ") />
+                                    </a>
+                                </div>
+                                <div class="product-dsc">
+                                    <h3><a href="#">@item.Name</a></h3>
+                                    <div class="star-price">
+                                        <span class="price-left">@item.Price$</span>
+                                        <span class="star-right">
+                                            @if (@item.Mark == null)
+                                            {
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            }
+                                            else if (@item.Mark != null)
+                                            {
+                                                for (int i = 1; i <= 5; i++)
+                                                {
+                                                    if (i <= @item.Mark)
+                                                    {
+                                                        <i class="fa fa-star"></i>
+                                                    }
+                                                    else if (i > @item.Mark)
+                                                    {
+                                                        <i class="fa fa-star-o"></i>
+                                                    }
+                                                }
+                                            }
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="actions-btn">
+                                    <a href="#" data-placement="top" data-target="#quick-view" data-trigger="hover" data-toggle="modal" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
+                                    <a data-placement="top" data-toggle="tooltip" href="#" data-original-title="Add To Wishlist"><i class="fa fa-heart"></i></a>
+                                    <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Compare"><i class="fa fa-retweet"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single product end -->
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+    @Html.Partial("_Brands")
+    @Html.Partial("_Info")
+
+}
+
+<script>
+
+    $('.add-to-cart').click(function () {
+        $.post("/Scase/CreateOrderOne", { clotheId: @ViewBag.Clothe.Id, sizeId: $("#SizeID").val(), amount: $("#Amount").val(), price: @ViewBag.Clothe.Price });
+
+         $.get("/Scase/GetAmountList", { sizeID: $("#SizeID").val(), clotheID: @ViewBag.Clothe.Id}, function (data) {
+                $("#Amount").empty();
+                $.each(data, function (index, row) {
+                    $("#Amount").append("<option value='" + row.Value + "'>" + row.Value + "</option>")
+                });
+        });
+
+        $('#cartlist').load('@Url.Action("GetCart", "Scase")');
+        $("#here").load(window.location.href + " #here");
+    });
+    $(document).ready(function () {
+        $("#SizeID").change(function () {
+            $.get("/Scase/GetAmountList", { sizeID: $("#SizeID").val(), clotheID: @ViewBag.Clothe.Id}, function (data) {
+                $("#Amount").empty();
+                $.each(data, function (index, row) {
+                    $("#Amount").append("<option value='" + row.Value + "'>" + row.Value + "</option>")
+                });
+            });
+        })
+    });
+</script>

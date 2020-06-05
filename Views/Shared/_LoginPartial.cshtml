@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul>
+            @if (User.IsInRole("admin"))
+            {
+                <li><a href="/Admin/ListClothes"><i class="fa fa-cog"></i>Admin panel</a></li>
+            }
+            else
+            {
+                <li><a href='@Url.Action("MyAcc","Scase")'><i class="fa fa-user"></i>My account</a></li>
+                <li><a href='@Url.Action("GetCartList","Scase")'><i class="fa fa-shopping-cart"></i>My cart</a></li>
+                <li><a href='@Url.Action("Wishlist", "Scase")'><i class="fa fa-heart"></i>My wishlist</a></li>
+                <li><a href='@Url.Action("CheckOut", "Scase")'><i class="fa fa-usd"></i>Checkout</a></li>
+            }
+            <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out"></i>Logout</a></li>
+        </ul>
+
+    }
+
+}
+else
+{
+    <ul>
+        <li><a href="/Account/Register"><i class="fa fa-user-plus"></i>Register</a></li>
+        <li><a href="/Account/Login"><i class="fa fa-sign-in"></i>Login</a></li>
+    </ul>
+
+}

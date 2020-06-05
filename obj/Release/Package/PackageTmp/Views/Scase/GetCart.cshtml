@@ -1,0 +1,82 @@
+﻿
+<a href="cart.html">
+    <i class="fa fa-shopping-cart"></i>
+    <span class="color1">
+        <p1>@ViewBag.CB</p1>
+    </span>
+</a>
+<ul class="drop-cart">
+
+    @foreach (var item in ViewBag.Pic)
+    {
+        <li>
+            <a href="cart.html">
+                <img style="width:68px; height:100px;" src=@Html.Raw("\"data:image/jpeg;base64," + Convert.ToBase64String(@item.Image) + "\" ") />
+            </a>
+            <div class="add-cart-text">
+                <p><a href='@Url.Action("CreateOrderOne", "Scase" , new { id = item.ClotheID })'>@item.Name</a></p>
+                <p>@item.Price$</p>
+                <span>Quantity :  @item.Amount</span>
+                <span>Size   : @item.Size</span>
+            </div>
+            <button class="mobile-button" id="del" value="@item.Id">
+                <div class="pro-close">
+                    <i class="pe-7s-close"></i>
+                </div>
+            </button>
+            @*<input type="checkbox" name="OrederOneId" class="common_selector pe-7s-close" id="OrederOneId" value="@item.Id">*@
+        </li>
+
+    }
+    <li class="total-amount clearfix">
+        <span class="floatleft">total</span>
+        <span class="floatright"><strong>= @ViewBag.TotalSum$</strong></span>
+    </li>
+    <li>
+        <div class="goto text-center">
+            <a href="cart.html"><strong>go to cart &nbsp;<i class="pe-7s-angle-right"></i></strong></a>
+        </div>
+    </li>
+    <li class="checkout-btn text-center">
+        <a href='@Url.Action("CheckOut", "Scase")'>Check out</a>
+    </li>
+</ul>
+<script>
+
+    $("button").click(function () {
+
+        $.get("/Scase/DeleteCart", { id: $(this).val() });
+    $('#cartlist').load('@Url.Action("GetCart", "Scase")');
+
+    });
+
+    @*$('.pro-close i').click(function () {
+        $.get("/Scase/DeleteCart", { id: $("#OrederOneId").val() });
+        $('#cartlist').load('@Url.Action("GetCart", "Scase")');
+
+    });
+
+    $('.common_selector').click(function () {
+        var orderoneid = get_filter('OrederOneId');
+        $.get("/Scase/DeleteCart", { id: orderoneid });
+    $('#cartlist').load('@Url.Action("GetCart", "Scase")');
+
+    });
+    function get_filter(name) {
+
+        var filter ;
+        $.each($("input[name='" + name + "']:checked"), function () {
+            filter = $(this).val();
+        });
+        return filter;
+    }*@
+</script>
+<style>
+    .mobile-button {
+        border: medium none;
+        background-image: none;
+        background: transparent;
+        float: left;
+        background-color: transparent;
+    }
+</style>

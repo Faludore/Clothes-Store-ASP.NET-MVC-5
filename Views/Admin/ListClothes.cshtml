@@ -1,0 +1,86 @@
+﻿@model IEnumerable<StoreIdent.Models.Clothe>
+
+@{
+    ViewBag.Title = "ListClothes";
+}
+@Html.Partial("AdminHeder")
+<div class="wrapper">
+    @Html.Partial("Nav")
+
+    <div class="light shopping-cart-area">
+
+        <div class="last-cart l-mrgn wish">
+            <a class="las4" href="/Admin/CreateClothe"> Create New</a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="s-cart-all">
+                    <div class="cart-form table-responsive">
+                        <table id="shopping-cart-table" class="data-table cart-table">
+                            <tr>
+                                <th>Name</th>
+                                <th>TypeClothe</th>
+                                <th>Material</th>
+                                <th>Brand</th>
+                                <th>DnTStart</th>
+                                <th>DnTEnd</th>
+                                <th>Price</th>
+                                <th>Gender</th>
+                                <th>Info</th>
+                                <th>Actions</th>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock"> @Html.DisplayFor(modelItem => item.Name)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">  @Html.DisplayFor(modelItem => item.TypeClothe.Name)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">  @Html.DisplayFor(modelItem => item.Material.Name)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">  @Html.DisplayFor(modelItem => item.Brand.Name)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">  @Html.DisplayFor(modelItem => item.DnTStart)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">  @Html.DisplayFor(modelItem => item.DnTEnd)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">  @Html.DisplayFor(modelItem => item.Price)$</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">  @Html.DisplayFor(modelItem => item.Gender.Name)</span>
+                                    </td>
+                                    <td class="cen">
+                                        <span class="wishlist-in-stock">  @Html.DisplayFor(modelItem => item.Info)</span>
+                                    </td>
+                                    <td class="sop-cart">
+
+                                        @Html.ActionLink("Edit", "EditClothe", new { id = item.Id })
+
+                                        @Html.ActionLink("Delete", "DeleteClothe", new { id = item.Id })
+
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

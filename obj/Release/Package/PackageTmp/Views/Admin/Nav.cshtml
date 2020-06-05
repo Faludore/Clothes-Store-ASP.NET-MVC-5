@@ -1,0 +1,48 @@
+﻿
+
+    <div class="text-center">
+        <div class="or">
+            <div class="col-md-3 product-bottom product-at">
+
+                <div class=" rsidebar span_1_of_left">
+                    <h4 class="cate">All</h4>
+                    <ul class="menu-drop">
+                        <li class="item1">
+                            <a href="#">Tables</a>
+                            <ul class="cute">
+                                @foreach (var item in ViewBag.tables)
+                                {
+                                    string h = "List" + @item;
+                                    <li class="subitem1">@Html.ActionLink((string)@item, h)</li>
+                                }
+                            </ul>
+                        </li>
+                        <li class="item2">
+                            <a href="#">Stats</a>
+                            <ul class="cute">
+                                <li class="subitem1"><a href="product.html">Cute Kittens </a></li>
+                                <li class="subitem2"><a href="product.html">Strange Stuff </a></li>
+                                <li class="subitem3"><a href="product.html">Automatic Fails </a></li>
+                            </ul>
+                        </li>
+                        <li class="item3">
+                            <a href="#">Visits</a>
+                            <ul class="cute">
+                                <li class="subitem1"><a href="product.html">Cute Kittens </a></li>
+                                <li class="subitem2"><a href="product.html">Strange Stuff </a></li>
+                                <li class="subitem3"><a href="product.html">Automatic Fails</a></li>
+                            </ul>
+                        </li>
+                        <li class="item4">
+                            <a href="#">Personal</a>
+                            <ul class="cute">
+                                <li class="subitem1"><a href="product.html">Cute Kittens </a></li>
+                                <li class="subitem2"><a href="product.html">Strange Stuff </a></li>
+                                <li class="subitem3"><a href="product.html">Automatic Fails</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>

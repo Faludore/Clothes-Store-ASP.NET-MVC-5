@@ -1,0 +1,63 @@
+﻿@model IEnumerable<StoreIdent.Models.Favorite>
+
+@{
+                /**/
+
+                ViewBag.Title = "ListFavorites";
+}
+
+
+
+@Html.Partial("AdminHeder")
+<div class="wrapper">
+    @Html.Partial("Nav")
+
+    <div class="light shopping-cart-area">
+
+        <div class="last-cart l-mrgn wish">
+            <a class="las4" href="/Admin/Create"> Create New</a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="s-cart-all">
+                    <div class="cart-form table-responsive">
+                        <table id="shopping-cart-table" class="data-table cart-table">
+
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Clothe)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UserEmail)
+                                </th>
+                                <th></th>
+                            </tr>
+
+
+                            @foreach (var item in Model)
+                            {
+                <tr>
+                    <td class="cen">
+                        <span class="wishlist-in-stock"> @Html.DisplayFor(modelItem => item.Clothe.Name)</span>
+
+                    </td>
+                    <td class="cen">
+                        <span class="wishlist-in-stock"> @Html.DisplayFor(modelItem => item.UserEmail)</span>
+
+                    </td>
+                    <td class="sop-cart">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

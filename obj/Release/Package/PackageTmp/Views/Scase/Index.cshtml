@@ -1,0 +1,311 @@
+﻿@using PagedList.Mvc;
+@Html.Partial("UserHeder")
+<section class="pages products-page section-padding-top">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-lg-3 col-sm-12">
+                <div class="all-shop-sidebar">
+                    <div class="top-shop-sidebar">
+                        <h3 class="wg-title">SHOP BY</h3>
+                    </div>
+                    <div class="shop-one">
+                        <h3 class="wg-title2">Categories</h3>
+                        <ul class="product-categories">
+                            <li class="cat-item">
+                                <a href="#">Accessories</a>
+                                <span class="count">(10)</span>
+                            </li>
+                            <li class="cat-item">
+                                <a href="#">Jewelry</a>
+                                <span class="count">(8)</span>
+                            </li>
+                            <li class="cat-item current-cat">
+                                <a href="#">Men</a>
+                                <span class="count">(5)</span>
+                            </li>
+                            <li class="cat-item">
+                                <a href="#">Watches</a>
+                                <span class="count">(6)</span>
+                            </li>
+                            <li class="cat-item">
+                                <a href="#">Women</a>
+                                <span class="count">(10)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="shop-one">
+                        <h3 class="wg-title2">Our Brand</h3>
+                        <ul class="product-categories">
+                            <li class="cat-item">
+                                <a href="#">Nike</a>
+                                <span class="count">(1)</span>
+                            </li>
+                            <li class="cat-item">
+                                <a href="#">Religion</a>
+                                <span class="count">(1)</span>
+                            </li>
+                            <li class="cat-item-10">
+                                <a href="#">Diesel</a>
+                                <span class="count">(1)</span>
+                            </li>
+                            <li class="cat-item">
+                                <a href="#">Monki</a>
+                                <span class="count">(1)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="shop-one re-shop-one">
+                        <h3 class="wg-title2">Choose Price</h3>
+                        <div class="widget shop-filter">
+                            <div class="info_widget">
+                                <div class="price_filter">
+
+                                    <div id="slider"></div>
+                                    <div id="amount">
+                                        <input class="first_price" type="text" id="minimum_price" />
+                                        <input class="last_price" type="text" id="maximum_price" />
+
+                                        <button id="pricefilter" class="button-shop" type="submit"><i class="fa fa-search search-icon"></i></button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shop-one re-shop-one">
+                        <h3 class="wg-title2">Choose Color</h3>
+                        <ul class="product-categories">
+                            <li class="cat-item cat-item-11">
+                                <a href="#">Black</a>
+                                <span class="count">(1)</span>
+                            </li>
+                            <li class="cat-item cat-item-8">
+                                <a href="#">Orange</a>
+                                <span class="count">(1)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="top-shop-sidebar sim">
+                        <h3 class="wg-title">Compare Products</h3>
+                        <ul class="products-list">
+                            <li class="cat-item cat-item-11">No products to compare</li>
+                        </ul>
+                        <a class="clear-all" href="#">Clear all</a>
+                        <a class="blog8" href="#">Compare</a>
+                    </div>
+                    <div class="top-shop-sidebar sim2">
+                        <h3 class="wg-title">Community Pool</h3>
+                    </div>
+                    <div class="shop-one">
+                        <ul class="product-categories">
+                            <li class="cat-item cat-item-11">
+                                <a href="#">Black</a>
+                                <span class="count">(1)</span>
+                            </li>
+                            <li class="cat-item cat-item-8">
+                                <a href="#">Orange</a>
+                                <span class="count">(1)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="top-shop-sidebar an-shop">
+                        <h3 class="wg-title">BEST SELLER</h3>
+                        <ul>
+                            <li class="b-none">
+                                <div class="tb-recent-thumbb">
+                                    <a href="">
+                                        <img class="attachment" src="img/products/1.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="tb-recentb">
+                                    <div class="tb-beg">
+                                        <a href="#">Lambskin Shoe</a>
+                                    </div>
+                                    <div class="tb-product-price font-noraure-3">
+                                        <span class="amount">$180.00</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="b-none">
+                                <div class="tb-recent-thumbb">
+                                    <a href="">
+                                        <img class="attachment" src="img/products/2.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="tb-recentb">
+                                    <div class="tb-beg">
+                                        <a href="#">Luxury Leather Bag</a>
+                                    </div>
+                                    <div class="tb-product-price font-noraure-3">
+                                        <span class="amount2 ana">$170.00</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="b-none agn">
+                                <div class="tb-recent-thumbb">
+                                    <a href="">
+                                        <img class="attachment" src="img/products/3.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="tb-recentb">
+                                    <div class="tb-beg">
+                                        <a href="#">Vintage Glasses</a>
+                                    </div>
+                                    <div class="tb-product-price font-noraure-3">
+                                        <span class="amount2 ana">$170.00</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ro-info-box-wrap tpl3 st">
+                        <div class="tb-image">
+                            <img src="img/products/4.jpg" alt="">
+                        </div>
+                        <div class="tb-content">
+                            <div class="tb-content-inner an-inner">
+                                <h5>WOMEN'S FASHION</h5>
+                                <h3>MID SEASON SALE</h3>
+                                <h6>
+                                    <a href="#">SHOP NOW</a>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-9 col-sm-12">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="features-tab">
+                            <!-- Nav tabs -->
+                            <div class="shop-all-tab">
+                                <div class="two-part">
+                                    <ul class="nav tabs" role="tablist">
+                                        <li class="vali">View as:</li>
+                                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-th-large"></i></a></li>
+                                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="re-shop">
+
+                                    <div class="sort-by">
+                                        <div class="shop6">
+
+
+                                            <label>Sort By :</label>
+                                            <div class="selectdiv">
+
+                                                @Html.DropDownList("pageSort")
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="shop5">
+
+
+
+
+
+
+                                        <label>Show :</label>
+                                        <div class="selectdiv">
+
+                                            @Html.DropDownList("pageSize")
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- Tab panes -->
+                            <div id="results">
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    $(document).ready(function () {
+        // Initializing slider
+        var sliderDiv = $('#slider');
+        sliderDiv.slider({
+            range: true,
+            min: 40,
+            max: 600,
+            values: [40, 600],
+            slide: function (event, ui) {
+                $('#minimum_price').val(ui.values[0]);
+                $('#maximum_price').val(ui.values[1]);
+            },
+        });
+        $('#minimum_price').val(sliderDiv.slider('values', 0));
+        $('#maximum_price').val(sliderDiv.slider('values', 1));
+    });
+
+     $(document).ready(function () {
+         $('#pricefilter').click(function (e) {
+            e.preventDefault();
+             var minimum = $('#minimum_price').val();
+             var maximum = $('#maximum_price').val();
+             var pagesize = $('#pageSize').val();
+             var pagesort = $('#pageSort').val();
+             $('#results').load('@Url.Action("ClotheFilter", "Scase")?min=' + minimum + '&max=' + maximum + '&PageSize=' + pagesize + '&pageSort=' + pagesort)
+        });
+    });
+    $(document).ready(function () {
+        var minimum = $('#minimum_price').val();
+        var maximum = $('#maximum_price').val();
+        var pagesize = $('#pageSize').val();
+        var pagesort = $('#pageSort').val();
+        $('#results').load('@Url.Action("ClotheFilter", "Scase")?min=' + minimum + '&max=' + maximum + '&PageSize=' + pagesize + '&pageSort=' + pagesort)
+
+    });
+</script>
+
+<script type="text/javascript">
+     $(document).ready(function () {
+         $('#pageSize').change(function (e) {
+            e.preventDefault();
+            var minimum = $('#minimum_price').val();
+            var maximum = $('#maximum_price').val();
+            var pagesize = $('#pageSize').val();
+            var pagesort = $('#pageSort').val();
+             $('#results').load('@Url.Action("ClotheFilter", "Scase")?min=' + minimum + '&max=' + maximum + '&PageSize=' + pagesize + '&pageSort=' + pagesort)
+        });
+    });
+</script>
+
+<script type="text/javascript">
+     $(document).ready(function () {
+         $('#pageSort').change(function (e) {
+             e.preventDefault();
+             $("#loading").fadeOut(1000);
+            var minimum = $('#minimum_price').val();
+            var maximum = $('#maximum_price').val();
+            var pagesize = $('#pageSize').val();
+            var pagesort = $('#pageSort').val();
+             $('#results').load('@Url.Action("ClotheFilter", "Scase")?min=' + minimum + '&max=' + maximum + '&PageSize=' + pagesize + '&pageSort=' + pagesort)
+
+        });
+    });
+
+</script>
