@@ -78,7 +78,7 @@ namespace StoreIdent.Controllers
             dbOrder = new OrderRepository();
             dbTypeBuy = new TypeBuyRepository();
 
-            botClient = new TelegramBotClient("1197569417:AAEfpJvha4nnuCRWuHMJ_Usd235e0Q4MKdA");
+            botClient = new TelegramBotClient("fdklgjrfihjyuCRWuHMJ_Usd235e0Q4MKdA");
         }
 
 
